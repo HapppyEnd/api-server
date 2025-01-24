@@ -1,7 +1,9 @@
 from datetime import date, datetime
 from fastapi import FastAPI
-from pydantic import BaseModel
+from pydantic import BaseModel, constr
+
 app = FastAPI()
+
 
 class Patient(BaseModel):
     id: int
@@ -14,6 +16,9 @@ class Patient(BaseModel):
 
 
 class User(BaseModel):
-    username: str
-    password: str
+    username: constr(min_length=3, max_length=30)
+    password: constr(min_length=8)
     role: str
+
+    class Config:
+        orm_mode = True

@@ -16,3 +16,4 @@ class Patient(BaseModel):
 class User(BaseModel):
     username: str
     password: str
+    role: str

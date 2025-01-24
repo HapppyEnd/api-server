@@ -13,6 +13,7 @@ class User(Base):
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     username = Column(String, unique=True, index=True)
     password = Column(String, nullable=False)
+    role = Column(String, nullable=False, index=True, default='patient')
 
 
 class Patient(Base):

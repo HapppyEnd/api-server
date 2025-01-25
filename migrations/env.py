@@ -3,7 +3,7 @@ from logging.config import fileConfig
 from alembic import context
 from sqlalchemy import engine_from_config, pool
 
-from code.database import Base
+from code.models import Base
 from code.models import Patient, User
 
 config = context.config

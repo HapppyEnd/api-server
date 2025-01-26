@@ -1,13 +1,14 @@
 import datetime
-from dotenv import load_dotenv
+
 import jwt
+from dotenv import load_dotenv
 from fastapi import Body, Depends, FastAPI, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
+from models import Patient, User, get_db
 from passlib.context import CryptContext
+from schemas import PatientSchema, UserSchema
 from sqlalchemy.orm import Session
 
-from .models import Patient, User, get_db
-from .schemas import PatientSchema, UserSchema
 load_dotenv()
 DATABASE_URL = "sqlite:///database.db"
 SECRET_KEY = "your_secret_key"

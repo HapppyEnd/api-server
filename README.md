@@ -47,7 +47,7 @@ ACCESS_TOKEN_EXPIRE_MINUTES=30
 ```
 
 ## Description of Variables:
-`DATABASE_URL`: The URL for connecting to your database (PostgreSQL or SQLite).
+`DATABASE_URL`: The URL for connecting to your database.
 
 `SECRET_KEY`: A secret key used for encoding the JWT tokens.
 

@@ -18,7 +18,7 @@ class PatientSchema(BaseModel):
        """
     id: int
     date_of_birth: date
-    diagnoses: list[str]
+    diagnosis: list[str]
     created_at: datetime
 
     class Config:

@@ -82,7 +82,7 @@ class Patient(Base):
     __tablename__ = "patient"
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     date_of_birth = Column(Date, nullable=False)
-    diagnoses = Column(MutableList.as_mutable(JSON))
+    diagnosis = Column(MutableList.as_mutable(JSON))
     created_at = Column(DateTime, default=datetime.now(timezone.utc))
 
 

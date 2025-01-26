@@ -61,8 +61,8 @@ def create_user(db_session: Session):
 @pytest.fixture
 def create_patient(db_session: Session, create_user: User):
     """Create test patient."""
-    patient = Patient(date_of_birth=datetime.date(1990, 1, 1), diagnoses=[
-                      "Flu"], created_at=datetime.datetime.now())
+    patient = Patient(date_of_birth=datetime.date(1990, 1, 1),
+                      diagnosis=["Flu"], created_at=datetime.datetime.now())
     db_session.add(patient)
     db_session.commit()
     db_session.refresh(patient)

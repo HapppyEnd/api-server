@@ -1,5 +1,5 @@
 import datetime
-
+from dotenv import load_dotenv
 import jwt
 from fastapi import Body, Depends, FastAPI, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
@@ -8,7 +8,7 @@ from sqlalchemy.orm import Session
 
 from .models import Patient, User, get_db
 from .schemas import PatientSchema, UserSchema
-
+load_dotenv()
 DATABASE_URL = "sqlite:///database.db"
 SECRET_KEY = "your_secret_key"
 ALGORITHM = "HS256"

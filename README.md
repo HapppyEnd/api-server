@@ -34,6 +34,36 @@ This is a FastAPI-based web application that provides an API for managing users 
     ```sh
     alembic upgrade head
     ```
+## Alembic Migrations
+
+### Commands
+
+- **Create a new migration**: 
+    ```sh
+    alembic revision --autogenerate -m "migration_message"
+    ```
+    Replace `"migration_message"` with a descriptive message for your migration.
+
+- **Apply migrations**: 
+    ```sh
+    alembic upgrade head
+    ```
+
+- **Downgrade to a previous migration**: 
+    ```sh
+    alembic downgrade <revision>
+    ```
+    Replace `<revision>` with the specific revision ID you want to downgrade to.
+
+- **Show current migration version**: 
+    ```sh
+    alembic current
+    ```
+
+- **List all migrations**: 
+    ```sh
+    alembic history
+    ```
 
 ## Environment Variables
 

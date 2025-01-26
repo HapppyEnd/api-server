@@ -1,7 +1,7 @@
 from datetime import datetime, timezone
 
 import bcrypt
-from sqlalchemy import Column, create_engine, Date, DateTime, Integer, String
+from sqlalchemy import Column, Date, DateTime, Integer, String, create_engine
 from sqlalchemy.ext.mutable import MutableList
 from sqlalchemy.orm import declarative_base, sessionmaker
 from sqlalchemy.types import JSON
@@ -82,7 +82,7 @@ class Patient(Base):
     __tablename__ = "patient"
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     date_of_birth = Column(Date, nullable=False)
-    diagnosis = Column(MutableList.as_mutable(JSON))
+    diagnoses = Column(MutableList.as_mutable(JSON))
     created_at = Column(DateTime, default=datetime.now(timezone.utc))
 
 

@@ -6,8 +6,8 @@ from fastapi.security import OAuth2PasswordBearer
 from passlib.context import CryptContext
 from sqlalchemy.orm import Session
 
-from models import get_db, Patient, User
-from schemas import PatientSchema, UserSchema
+from .models import Patient, User, get_db
+from .schemas import PatientSchema, UserSchema
 
 DATABASE_URL = "sqlite:///database.db"
 SECRET_KEY = "your_secret_key"
@@ -83,7 +83,7 @@ def read_patients(token: str = Depends(oauth2_scheme),
       """
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
-        detail="Could not validate credentials",
+        detail="Not authenticated",
         headers={"WWW-Authenticate": "Bearer"})
 
     try:
@@ -97,9 +97,3 @@ def read_patients(token: str = Depends(oauth2_scheme),
 
     patients = db.query(Patient).all()
     return patients
-
-
-if __name__ == "__main__":
-    import uvicorn
-
-    uvicorn.run(app, host="127.0.0.1", port=8000)

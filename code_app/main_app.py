@@ -1,5 +1,5 @@
 import datetime
-
+import os
 import jwt
 from dotenv import load_dotenv
 from fastapi import Body, Depends, FastAPI, HTTPException, status
@@ -10,10 +10,10 @@ from schemas import PatientSchema, UserSchema
 from sqlalchemy.orm import Session
 
 load_dotenv()
-DATABASE_URL = "sqlite:///database.db"
-SECRET_KEY = "your_secret_key"
-ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 30
+DATABASE_URL = os.getenv("DATABASE_URL")
+SECRET_KEY = os.getenv("SECRET_KEY")
+ALGORITHM = os.getenv("ALGORITHM")
+ACCESS_TOKEN_EXPIRE_MINUTES = os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES")
 
 app = FastAPI()
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
